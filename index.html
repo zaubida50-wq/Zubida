@@ -17,32 +17,50 @@
 
 <style>
 /* =========================================================================================
-   THEME — Warm Cocoa page bg (lighter), Light Beige content containers (mobile-first)
+   THEME — Softer Caramel-Cocoa + Soft Almond
+   (kept the OLD palette as comments; NEW palette used below)
    ======================================================================================= */
+
+/* ------- OLD palette (kept as requested) ---------------------------------
 :root{
-  /* Page */
-  --bg:#3a2a1e;          /* lighter warm cocoa background */
-
-  /* Content containers (sections) */
-  --card:#f2e7d9;        /* soft light beige */
-  --card-2:#f7efe6;      /* lighter beige for inner cards */
-  --card-3:#fffaf3;      /* cream highlight */
-
-  /* Text colors */
-  --ink:#f7efe6;         /* light text for dark zones */
-  --ink-dark:#2f241b;    /* dark brown text for light containers */
-  --muted-dark:#5a4738;  /* muted text on light containers */
-  --muted:#e6d8c9;       /* muted on dark areas */
-
-  /* Lines & accents */
-  --line:#e7d6c6;        /* borders on light */
-  --line-dark:#5a4230;   /* borders on dark (lighter than before) */
-  --gold:#c9a57f;        /* warm accent */
-
-  /* Buttons */
-  --btn:#eadfce;
-  --btn-ink:#3a2a1e;
+  --bg:#3a2a1e;
+  --card:#f2e7d9; --card-2:#f7efe6; --card-3:#fffaf3;
+  --ink:#f7efe6; --ink-dark:#2f241b; --muted-dark:#5a4738; --muted:#e6d8c9;
+  --line:#e7d6c6; --line-dark:#5a4230; --gold:#c9a57f;
+  --btn:#eadfce; --btn-ink:#3a2a1e;
 }
+--------------------------------------------------------------------------- */
+
+/* ------- NEW palette (lighter, better match) ---------------------------- */
+:root{
+  --bg:        #5a4636;
+  --bg-2:      #4f3c2e;
+
+  --card:      #f6eee3;
+  --card-2:    #fbf4eb;
+  --card-3:    #fff8f0;
+
+  --ink:       #fff6ec;
+  --ink-dark:  #2c2219;
+  --muted:     #eadbca;
+  --muted-dark:#5c4a3b;
+
+  --line:      #ead7c6;
+  --line-dark: #6b5646;
+  --gold:      #c8a47c;
+
+  --btn:       #ecdcc8;
+  --btn-ink:   #4a382a;
+
+  --shadow-lg: 0 12px 28px rgba(52, 38, 28, 0.22);
+  --shadow-md: 0 9px 20px  rgba(52, 38, 28, 0.18);
+  --shadow-sm: 0 6px 14px  rgba(52, 38, 28, 0.14);
+
+  --thumb-min: 120px;
+  --thumb-gap: 10px;
+}
+/* ----------------------------------------------------------------------- */
+
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif}
 html{scroll-behavior:smooth}
@@ -56,10 +74,10 @@ button,a{touch-action:manipulation}
   background:var(--btn); color:var(--btn-ink);
   border:1px solid #cbb59e; border-radius:14px; padding:10px 14px;
   font-weight:900; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
-  box-shadow:0 6px 14px rgba(0,0,0,.18);
+  box-shadow:var(--shadow-sm);
   transition:transform .08s ease, box-shadow .08s ease, background .15s ease, opacity .15s ease;
 }
-.btn:hover{ transform:translateY(-1px); box-shadow:0 10px 18px rgba(0,0,0,.25); background:#e6d6c2; }
+.btn:hover{ transform:translateY(-1px); box-shadow:var(--shadow-md); background:#e6d6c2; }
 .btn.ghost{ background:transparent; color:var(--ink); border:1px solid var(--gold) }
 .btn.icon{ padding:8px 10px; border-radius:10px }
 .btn.icon i{ font-size:14px }
@@ -68,7 +86,7 @@ button,a{touch-action:manipulation}
 section{
   background:var(--card); color:var(--ink-dark);
   border:1px solid var(--line); border-radius:18px;
-  box-shadow:0 10px 26px rgba(0,0,0,.14);
+  box-shadow:var(--shadow-lg);
   padding:20px; margin:16px auto; scroll-margin-top:86px;
 }
 .section-head{
@@ -77,7 +95,7 @@ section{
 }
 .section-head .title{
   margin:0; display:flex; align-items:center; gap:10px; min-width:0;
-  color:#3a2a1e;
+  color:#4a382b;
   border-inline-start:6px solid var(--gold); padding-inline-start:10px;
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
@@ -94,7 +112,7 @@ b,strong{ color:#533b27 }
 .cv-card{
   background:linear-gradient(180deg, var(--card-2) 0%, var(--card) 100%);
   border:1px solid var(--line); border-radius:14px; padding:16px;
-  box-shadow:0 8px 20px rgba(0,0,0,.10); color:var(--ink-dark)
+  box-shadow:var(--shadow-md); color:var(--ink-dark)
 }
 .grid-2, .grid-3, .grid-4{ display:grid; gap:12px }
 .grid-2{ grid-template-columns:repeat(2,1fr) }
@@ -106,21 +124,32 @@ b,strong{ color:#533b27 }
 .pillar, .strategy{
   background:var(--card-3);
   border:1px solid var(--line); border-radius:14px; padding:14px;
-  box-shadow:0 8px 18px rgba(0,0,0,.10); color:var(--ink-dark)
+  box-shadow:var(--shadow-md); color:var(--ink-dark)
 }
 .pillar h4, .strategy h4{ margin:0 0 6px; color:#4a3728; font-weight:900; font-size:16px }
 .pillar p, .strategy p{ margin:0; color:var(--muted-dark) }
 .pillar i, .strategy i{
   font-size:18px; color:#fff; background:#8a6b4b;
   border:1px solid #bfa383; border-radius:10px; padding:8px; line-height:1; display:inline-flex; align-items:center; justify-content:center;
-  box-shadow:0 6px 14px rgba(0,0,0,.12); margin-bottom:8px;
+  box-shadow:var(--shadow-sm); margin-bottom:8px;
 }
 
-/* Media grid (LIGHT) */
-.media-grid{ display:grid; gap:12px; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)) }
+/* Media grid — compact on phones */
+.media-grid{
+  display:grid;
+  gap:12px;
+  grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
+}
+@media (max-width:900px){
+  .media-grid{ gap:12px; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); }
+}
+@media (max-width:600px){
+  .media-grid{ gap:var(--thumb-gap); grid-template-columns:repeat(auto-fit, minmax(var(--thumb-min), 1fr)); }
+}
+
 .media-card{
   position:relative; background:var(--card-3); border:1px solid var(--line);
-  border-radius:12px; overflow:hidden; box-shadow:0 8px 18px rgba(0,0,0,.10); color:var(--ink-dark)
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow-md); color:var(--ink-dark)
 }
 .media-thumb{ position:relative; width:100%; background:#fff; overflow:hidden }
 @supports (aspect-ratio: 1){ .media-thumb{ aspect-ratio:4/5 } }
@@ -136,20 +165,20 @@ b,strong{ color:#533b27 }
 }
 .media-actions .icon-btn i{ color:#6a4d37 }
 
-/* Footer (lighter) */
-footer{ background:#3f2d20; border-top:1px solid var(--line-dark); text-align:center; padding:16px; color:var(--muted); font-weight:800 }
+/* Footer */
+footer{ background:var(--bg-2); border-top:1px solid var(--line-dark); text-align:center; padding:16px; color:var(--muted); font-weight:800 }
 footer .en{ font-family:'Poppins',sans-serif; font-weight:600 }
 
 /* Language */
 .lang-ar [data-en], .lang-en [data-ar]{ display:none }
 .lang-en{ direction:ltr; font-family:'Poppins',sans-serif; color:var(--ink-dark) }
-.lang-en section .title{ color:#3a2a1e }
+.lang-en section .title{ color:#4a382b }
 .lang-en .section-head .title{ border-inline-start:none; border-inline-end:6px solid var(--gold); padding-inline-start:0; padding-inline-end:10px }
 
-/* Topbar (lighter cocoa) */
+/* Topbar */
 .topbar{
   position:sticky; top:0; z-index:120;
-  background:linear-gradient(180deg, rgba(58,42,30,.96), rgba(58,42,30,.86));
+  background:linear-gradient(180deg, rgba(90,70,54,.96), rgba(79,60,46,.86));
   -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
   border-bottom:1px solid var(--line-dark); color:var(--ink)
 }
@@ -158,31 +187,32 @@ footer .en{ font-family:'Poppins',sans-serif; font-weight:600 }
 }
 .brand{
   display:flex; align-items:center; gap:12px; min-width:0; padding:6px 12px; border-radius:14px;
-  background:#4a3628; border:1px solid var(--line-dark); color:var(--ink)
+  background:#6a5544; border:1px solid var(--line-dark); color:var(--ink);
+  box-shadow:var(--shadow-sm);
 }
 .brand .mark{
-  width:44px; height:44px; border-radius:12px; border:1px solid #6a523f;
-  background:radial-gradient(16px 16px at 28% 28%, #6a4f3d, #4e3a2c);
+  width:44px; height:44px; border-radius:12px; border:1px solid #8a735f;
+  background:radial-gradient(16px 16px at 28% 28%, #8a6f5b, #6a5544);
   display:grid; place-items:center;
-  color:#f2e7d9; font-family:'Poppins',sans-serif; font-weight:800; font-size:16px;
+  color:#fff2e7; font-family:'Poppins',sans-serif; font-weight:800; font-size:16px;
 }
 .brand .mark::after{ content:"ZE" }
 .brand .title{ display:flex; flex-direction:column; line-height:1.1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
-.brand .title b{ color:#f3e8dc; font-weight:900 }
+.brand .title b{ color:#fff2e6; font-weight:900 }
 .brand .title small{ color:var(--muted); font-weight:700 }
 .lang-switch{ display:flex; gap:8px; align-items:center }
 .lang-switch button,.login-btn,.nav-btn{
-  background:#5a4333; color:var(--ink); border:1px solid var(--line-dark); border-radius:12px; padding:8px 12px; font-weight:800; cursor:pointer
+  background:#6a5544; color:var(--ink); border:1px solid var(--line-dark); border-radius:12px; padding:8px 12px; font-weight:800; cursor:pointer
 }
 #sectionsBtn{ border-color:var(--gold); color:var(--ink); }
 
-/* HERO — Brighter floral cocoa */
+/* HERO */
 .hero{
   position:relative; overflow:hidden; border-bottom:1px solid var(--line-dark);
   background:
-    radial-gradient(900px 420px at 85% -10%, rgba(233,216,197,.18) 0%, rgba(233,216,197,0) 60%),
-    radial-gradient(780px 520px at 5% 100%, rgba(210,184,158,.16) 0%, rgba(210,184,158,0) 62%),
-    linear-gradient(180deg,#4a3628 0%,#3f2d20 70%,#3a2a1e 100%);
+    radial-gradient(900px 420px at 85% -10%, rgba(240,220,200,.18) 0%, rgba(233,216,197,0) 60%),
+    radial-gradient(780px 520px at 5% 100%, rgba(220,195,170,.16) 0%, rgba(210,184,158,0) 62%),
+    linear-gradient(180deg,#6b513f 0%,#5a4636 60%,#4f3c2e 100%);
   color:var(--ink);
 }
 .hero::before{
@@ -191,7 +221,7 @@ footer .en{ font-family:'Poppins',sans-serif; font-weight:600 }
   background-image:
     url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?>\
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" opacity="0.22">\
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%23efdcc8"/><stop offset="1" stop-color="%23d9c6b3"/></linearGradient></defs>\
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%23f6eee3"/><stop offset="1" stop-color="%23ead9c8"/></linearGradient></defs>\
 <g fill="url(%23g)">\
 <path d="M90,310c70,-120 240,-150 330,-80c-120,20 -170,120 -190,210c-42,-22 -90,-64 -140,-130z"/>\
 <path d="M360,150c42,2 84,42 96,82c-30,-20 -74,-20 -114,-10c-2,-28 8,-60 18,-72z"/>\
@@ -205,24 +235,24 @@ footer .en{ font-family:'Poppins',sans-serif; font-weight:600 }
   display:grid; grid-template-columns:1fr; place-items:center; text-align:center; gap:14px;
 }
 .hero__mark{
-  width:54px; height:54px; border-radius:14px; border:1px solid #6a523f;
-  background:linear-gradient(180deg,#6a4f3d,#523e30); display:grid; place-items:center;
-  color:#f3e8db; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; letter-spacing:.5px;
+  width:54px; height:54px; border-radius:14px; border:1px solid #8a735f;
+  background:linear-gradient(180deg,#8a6f5b,#6a5544); display:grid; place-items:center;
+  color:#fff2e6; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; letter-spacing:.5px;
   box-shadow:0 10px 26px rgba(0,0,0,.25);
 }
 .hero__mark::after{ content:"ZE" }
 .hero__title{
-  margin:10px 0 2px; font-weight:900; letter-spacing:.15px; color:#fff1e1;
+  margin:10px 0 2px; font-weight:900; letter-spacing:.15px; color:#fff4e9;
   font-size: clamp(22px, 6vw, 38px);
 }
 .hero__sub{
-  margin:0; color:#f1e5d6; font-weight:700; opacity:.98;
+  margin:0; color:#f6e8da; font-weight:700; opacity:.98;
   font-size: clamp(13px, 3.4vw, 16.6px);
   max-width:820px;
 }
 .hero__cta{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:14px }
 
-/* Overlay (cocoa) */
+/* Overlay (popup) */
 body.no-scroll{ overflow:hidden }
 #overlay{
   position:fixed; inset:0; background:rgba(0,0,0,.45);
@@ -231,30 +261,31 @@ body.no-scroll{ overflow:hidden }
 }
 #overlay.show{ display:flex }
 #overlay .win{
-  width:min(1000px,96vw); max-height:92vh; background:#928175; border:1px solid var(--line-dark);
+  width:min(1000px,96vw); max-height:92vh; background:#f6eee3; border:1px solid var(--line-dark);
   border-radius:16px; box-shadow:0 24px 60px rgba(0,0,0,.45); display:flex; flex-direction:column; overflow:hidden; position:relative;
+  color:var(--ink-dark);
 }
 #overlay .toolbar{
   position:sticky; top:0; display:flex; align-items:center; gap:8px; justify-content:space-between;
-  background:linear-gradient(180deg,#553f30,#4a3628); border-bottom:1px solid var(--line-dark); z-index:2; padding:8px;
+  background:linear-gradient(180deg,#6b513f,#5a4636); border-bottom:1px solid var(--line-dark); z-index:2; padding:8px;
   font-weight:900; color:var(--ink);
 }
 #overlay .toolbar .title{ display:flex; align-items:center; gap:10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
 #overlay .toolbar .actions{ display:flex; gap:8px }
 #overlay .toolbar .btnx{
-  background:#6a523f; border:1px solid var(--line-dark); color:var(--ink); border-radius:10px; padding:8px 12px; font-weight:800; cursor:pointer
+  background:#8a6f5b; border:1px solid var(--line-dark); color:#fff4ea; border-radius:10px; padding:8px 12px; font-weight:800; cursor:pointer
 }
-#overlay .toolbar .btnx[data-action="close"]{ background:#7a5a43; color:#fff6ea; border-color:#8b6c53 }
-#overlay .content{ position:relative; overflow:auto; -webkit-overflow-scrolling:touch; background:#3f2d20 }
+#overlay .toolbar .btnx[data-action="close"]{ background:#a8846a; color:#fff7ef; border-color:#b59176 }
+#overlay .content{ position:relative; overflow:auto; -webkit-overflow-scrolling:touch; background:#faf3ea }
 #overlay .content-inner{ display:grid; place-items:center; min-height:60vh; padding:0 }
 #overlay .content img{ max-width:100%; height:auto; display:block }
 #overlay .content video{ max-width:100%; max-height:84vh; display:block }
-#overlay .content iframe{ width:100%; height:84vh; border:0; background:#3f2d20 }
+#overlay .content iframe{ width:100%; height:84vh; border:0; background:#faf3ea }
 #overlay .close-fab{
-  position:absolute; top:10px; inset-inline-end:10px; z-index:3; width:46px; height:46px; border-radius:999px; border:1px solid #6a523f;
-  background:#6a523f; box-shadow:0 8px 18px rgba(0,0,0,.35); display:flex; align-items:center; justify-content:center; cursor:pointer;
+  position:absolute; top:10px; inset-inline-end:10px; z-index:3; width:48px; height:48px; border-radius:999px; border:1px solid #8a735f;
+  background:#8a6f5b; box-shadow:0 8px 18px rgba(0,0,0,.35); display:flex; align-items:center; justify-content:center; cursor:pointer;
 }
-#overlay .close-fab i{ color:#f3e8db; font-size:18px }
+#overlay .close-fab i{ color:#fff4ea; font-size:20px }
 
 /* Reveal */
 .reveal{ opacity:0; transform:translateY(12px) scale(.99); transition:opacity .45s ease, transform .45s ease }
@@ -422,41 +453,129 @@ body.no-scroll{ overflow:hidden }
     <h3 class="title"><i class="fa-solid fa-lightbulb"></i><span data-ar>استراتيجيات التدريس (الإنجليزية)</span><span data-en>Teaching Strategies (English)</span></h3>
   </div>
   <div class="grid-3">
+
+    <!-- ===== Strategy 1 ===== -->
     <div class="strategy">
       <i class="fa-solid fa-comments"></i>
-      <h4 data-ar>إطارات محادثة قابلة للاستبدال</h4><h4 data-en>Swappable Speaking Frames</h4>
+      <h4 data-ar>إطارات محادثة بسيطة مع أمثلة</h4><h4 data-en>Simple Speaking Frames with Examples</h4>
+
+      <!-- OLD (kept): 
       <p data-ar><b>Can I…?</b> <b>I’d like…</b> <b>Could you…?</b> نرفع الطلاقة أولًا، ثم ندقّق النحو.</p>
       <p data-en>“Can I…?”, “I’d like…”, “Could you…?” Fluency first, then accuracy.</p>
+      -->
+
+      <p data-ar>
+        نُعطي الطالب/ـة جُمل جاهزة للاستخدام اليومي مثل: <b>Can I have…?</b> / <b>I’d like…</b> / <b>Could you help me with…?</b>.
+        أولًا يتدرّب بسرعة على النطق الصحيح في حوار قصير، ثم نُصحّح القواعد بعد أن يتكلّم بثقة.
+        <em>مثال صفّي:</em> طالبة تطلب من المقصف بالإنجليزية باستخدام الإطار ثلاث مرات مع تغييرات بسيطة.
+      </p>
+      <p data-en>
+        Students use ready-to-go patterns like <b>Can I have…?</b>, <b>I’d like…</b>, <b>Could you help me with…?</b>.
+        We practice quick dialogues for confidence first, then refine grammar. 
+        <em>In class:</em> short role-plays (three tries, small changes each time).
+      </p>
     </div>
+
+    <!-- ===== Strategy 2 ===== -->
     <div class="strategy">
       <i class="fa-solid fa-headphones"></i>
-      <h4 data-ar>استماع موجّه قصير</h4><h4 data-en>Guided Micro-Listening</h4>
+      <h4 data-ar>استماع قصير بهدف واحد واضح</h4><h4 data-en>Short Listening with One Clear Goal</h4>
+
+      <!-- OLD (kept):
       <p data-ar>١–٣ دقائق بهدف واحد: فكرة رئيسية/تفصيل/إشارة صوتية؛ تكرار ذكي بدون ملل.</p>
       <p data-en>1–3 minutes with a single target (main idea/detail/prosody); smart, low-friction repeats.</p>
+      -->
+
+      <p data-ar>
+        مقطع صوتي 1–3 دقائق. نخبر الطالب/ـة بالهدف قبل الاستماع (مثلاً: <b>ما الفكرة الرئيسية؟</b>).
+        نُعيد المقطع مرة ثانية للبحث عن تفصيل واحد فقط. 
+        <em>مثال:</em> إعلان مدرسي—المرة الأولى: الفكرة العامة، الثانية: وقت الفعالية.
+      </p>
+      <p data-en>
+        A 1–3 minute audio. State the target first (<b>main idea</b> or <b>one detail</b>).
+        Play twice: first for gist, second for one specific fact. 
+        <em>Example:</em> school announcement—first: what it’s about; second: the time.
+      </p>
     </div>
+
+    <!-- ===== Strategy 3 ===== -->
     <div class="strategy">
       <i class="fa-solid fa-book-open-reader"></i>
-      <h4 data-ar>قراءة بالمفردة السياقية</h4><h4 data-en>Context-First Reading</h4>
+      <h4 data-ar>قراءة بالسياق + قائمة مفردات حيّة</h4><h4 data-en>Context Reading + Living Word List</h4>
+
+      <!-- OLD (kept):
       <p data-ar>نستنتج المعنى من السياق، ونحتفظ بقائمة مفردات «حية» تُستخدم فورًا في كتابة قصيرة.</p>
       <p data-en>Infer from context, keep a living word list that appears immediately in a short write.</p>
+      -->
+
+      <p data-ar>
+        قبل القراءة نتوقّع الفكرة من العنوان والصور. أثناء القراءة نحدّد 5 كلمات جديدة ونكتب معناها من <b>السياق</b>.
+        بعدها نستخدم هذه الكلمات في 3 جُمل قصيرة أو فقرة صغيرة.
+      </p>
+      <p data-en>
+        Predict from the title and visuals. While reading, pick 5 new words and guess meaning from <b>context</b>.
+        Then use them in three short sentences or a mini-paragraph right away.
+      </p>
     </div>
+
+    <!-- ===== Strategy 4 ===== -->
     <div class="strategy">
       <i class="fa-solid fa-keyboard"></i>
-      <h4 data-ar>Dicto-Gloss كتابي</h4><h4 data-en>Written Dicto-gloss</h4>
+      <h4 data-ar>إملاء بنائي (Dicto-gloss) خطوة بخطوة</h4><h4 data-en>Step-by-Step Dicto-gloss</h4>
+
+      <!-- OLD (kept):
       <p data-ar>نسمع مقطعًا مرتين، ثم نُعيد بناءه بجملنا—يرفع الدقّة الأسلوبية والقواعدية.</p>
       <p data-en>Listen twice, reconstruct in your own words—boosts style and grammar in one hit.</p>
+      -->
+
+      <p data-ar>
+        نسمع فقرة قصيرة مرتين. الطلاب يكتبون كلمات مفتاحية فقط، ثم يُعيدون بناء المعنى بجملهم.
+        نُقارن مع النص الأصلي لاكتشاف القواعد والتهجئة التي نحتاجها.
+      </p>
+      <p data-en>
+        Play a short text twice. Students jot keywords, then rebuild the meaning in their own sentences.
+        Compare with the original to notice grammar and spelling to improve.
+      </p>
     </div>
+
+    <!-- ===== Strategy 5 ===== -->
     <div class="strategy">
       <i class="fa-solid fa-layer-group"></i>
-      <h4 data-ar>مراجعة متباعدة + استرجاع</h4><h4 data-en>Spaced & Retrieval Practice</h4>
+      <h4 data-ar>مراجعة متباعدة بأسئلة تذكّر سريعة</h4><h4 data-en>Spaced Review with Quick Recall</h4>
+
+      <!-- OLD (kept):
       <p data-ar>مراجعات قصيرة على فترات، مع أسئلة استرجاع (من الذاكرة) بدل إعادة القراءة فقط.</p>
       <p data-en>Short spaced reviews with memory-based questions, not just re-reading.</p>
+      -->
+
+      <p data-ar>
+        3–5 أسئلة سريعة بعد يوم/3 أيام/أسبوع. الأسئلة من الذاكرة (بدون النظر للكتاب):
+        معاني كلمات، سؤال فهم واحد، وجملة نعيد صياغتها.
+      </p>
+      <p data-en>
+        3–5 quick questions after 1 day / 3 days / 1 week. Pure recall:
+        word meanings, one comprehension check, and one sentence to rephrase.
+      </p>
     </div>
+
+    <!-- ===== Strategy 6 ===== -->
     <div class="strategy">
       <i class="fa-solid fa-diagram-project"></i>
-      <h4 data-ar>ارتباط بالرياضيات</h4><h4 data-en>Math-Linked Language</h4>
+      <h4 data-ar>لغة تصف الجداول والرسوم البيانية</h4><h4 data-en>Language for Tables & Charts</h4>
+
+      <!-- OLD (kept):
       <p data-ar>وصف الرسومات البيانية والجداول—مفردات مثل <em>increase, compare, total</em> تُستخدم في تقارير قصيرة.</p>
       <p data-en>Describe charts/tables—vocabulary like <em>increase, compare, total</em> in short report writing.</p>
+      -->
+
+      <p data-ar>
+        نتدرّب على مفردات واضحة: <em>increase, decrease, compare, total, rate</em>.
+        يصف الطالب جدولًا صغيرًا في 4 جُمل: ماذا ارتفع؟ ماذا انخفض؟ ما المجموع؟ جملة خلاصة.
+      </p>
+      <p data-en>
+        Practice key words: <em>increase, decrease, compare, total, rate</em>.
+        Students write 4 sentences about a tiny table: what went up, what went down, total, and one conclusion.
+      </p>
     </div>
   </div>
 </section>
@@ -467,42 +586,127 @@ body.no-scroll{ overflow:hidden }
     <h3 class="title"><i class="fa-solid fa-square-root-variable"></i><span data-ar>استراتيجيات التدريس (الرياضيات)</span><span data-en>Teaching Strategies (Math)</span></h3>
   </div>
   <div class="grid-3">
+
+    <!-- ===== Strategy 1 ===== -->
     <div class="strategy">
       <i class="fa-solid fa-shapes"></i>
-      <h4 data-ar>نماذج بصرية → رمز → قاعدة</h4><h4 data-en>Visual → Notation → Rule</h4>
+      <h4 data-ar>محسوس → رسم → أرقام</h4><h4 data-en>Hands-on → Drawing → Numbers</h4>
+
+      <!-- OLD (kept):
       <p data-ar>خط أعداد/نماذج مساحة/مكعبات، ثم الترميز، ثم تعميم القاعدة—المعنى يقود الإجراء.</p>
       <p data-en>Number lines/area models/concrete blocks, then notation, then generalize the rule.</p>
+      -->
+
+      <p data-ar>
+        نبدأ بقطع حقيقية أو عدّاد، ثم نرسم ما فعلناه، ثم نكتب العملية بالأرقام.
+        <em>مثال:</em> جمع كسرين: قطع بيتزا → رسم أجزاء → كتابة الكسرين وجمعهما.
+      </p>
+      <p data-en>
+        Start with objects or counters, then draw, then write the numbers.
+        <em>Example:</em> adding fractions: pizza pieces → sketch parts → write and add the fractions.
+      </p>
     </div>
+
+    <!-- ===== Strategy 2 ===== -->
     <div class="strategy">
       <i class="fa-solid fa-chalkboard-user"></i>
-      <h4 data-ar>أمثلة محلولة بتلاشي الإرشاد</h4><h4 data-en>Worked Examples with Fading</h4>
+      <h4 data-ar>مثال محلول ثم تلاشي الخطوات</h4><h4 data-en>Worked Example with Fading</h4>
+
+      <!-- OLD (kept):
       <p data-ar>نشرح مسألة كاملة، ثم نُخفي بعض الخطوات تدريجيًا حتى الاستقلال.</p>
       <p data-en>Model fully, then gradually remove steps so students carry the process.</p>
+      -->
+
+      <p data-ar>
+        أشرح مسألة كاملة خطوة خطوة. في المسألة التالية أترك خانة أو خطوتين فارغتين ليُكملها الطالب.
+        ثم يحلّ الطالب مسألة ثالثة وحده. هكذا تنتقل المسؤولية بسلاسة.
+      </p>
+      <p data-en>
+        Teacher solves one problem fully. Next one has one–two blanks for students to fill.
+        Third problem is independent. Responsibility moves to the learner smoothly.
+      </p>
     </div>
+
+    <!-- ===== Strategy 3 ===== -->
     <div class="strategy">
       <i class="fa-solid fa-comments-dollar"></i>
-      <h4 data-ar>Number Talks قصيرة</h4><h4 data-en>Quick Number Talks</h4>
+      <h4 data-ar>حديث أعداد سريع (2–3 دقائق)</h4><h4 data-en>Quick Number Talk (2–3 min)</h4>
+
+      <!-- OLD (kept):
       <p data-ar>١–٣ دقائق ذهنيًا: أكثر من طريقة للحل، وتبرير شفهي موجز يرفع المرونة العددية.</p>
       <p data-en>1–3 minute mental routines: multiple strategies + brief justification build flexibility.</p>
+      -->
+
+      <p data-ar>
+        سؤال ذهني قصير (مثل 29×5). نستمع لطريقتين مختلفتين، وكل طالبة تقول <b>لماذا</b> طريقتها صحيحة بجملة واحدة.
+        الهدف: مرونة وفهم لا حفظ.
+      </p>
+      <p data-en>
+        Mental warm-up (e.g., 29×5). Hear two different methods; each student gives a one-sentence <b>why</b>.
+        Goal: flexibility and understanding, not memorization.
+      </p>
     </div>
+
+    <!-- ===== Strategy 4 ===== -->
     <div class="strategy">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <h4 data-ar>تحليل الأخطاء</h4><h4 data-en>Error Analysis</h4>
+      <h4 data-ar>تحليل خطأ + قاعدة حماية</h4><h4 data-en>Error Check + Guard Rule</h4>
+
+      <!-- OLD (kept):
       <p data-ar>نبحث «أين تعطل التفكير؟» ثم نصوغ قاعدة بسيطة تمنع الخطأ مستقبلًا.</p>
       <p data-en>Spot where thinking broke, then craft a simple guard-rule to avoid repeats.</p>
+      -->
+
+      <p data-ar>
+        نعرض حلاً خاطئًا قصيرًا. نحدد خطوة الخطأ ونكتب «قاعدة حماية» من 7 كلمات أو أقل.
+        <em>مثال:</em> عند القسمة على كسر: <b>نقلب المقسوم عليه ثم نضرب دائمًا</b>.
+      </p>
+      <p data-en>
+        Show a short wrong solution. Find the error step and write a ≤7-word “guard rule”.
+        <em>Example:</em> dividing by a fraction: <b>flip the divisor, then multiply</b>.
+      </p>
     </div>
+
+    <!-- ===== Strategy 5 ===== -->
     <div class="strategy">
       <i class="fa-solid fa-layer-group"></i>
-      <h4 data-ar>تداخل المهارات (Interleaving)</h4><h4 data-en>Interleaving</h4>
+      <h4 data-ar>مزج أنواع مسائل قريبة (Interleaving)</h4><h4 data-en>Mix Similar Problem Types (Interleaving)</h4>
+
+      <!-- OLD (kept):
       <p data-ar>مزج أنواع مسائل قريبة لتمييز الاختيار الصحيح للطريقة، لا الاعتماد على النمط.</p>
       <p data-en>Mix similar problem types so students choose the right method—no pattern guessing.</p>
+      -->
+
+      <p data-ar>
+        نجمع مسائل متقاربة في ورقة واحدة (مثلاً: محيط <b>أو</b> مساحة؟).
+        على الطالبة أن تختار القانون الصحيح أولًا ثم تحل. هذا يمنع «تخمين النمط».
+      </p>
+      <p data-en>
+        Put look-alike problems on one sheet (e.g., perimeter <b>vs</b> area).
+        Students choose the right rule first, then solve. This stops pattern-guessing.
+      </p>
     </div>
+
+    <!-- ===== Strategy 6 ===== -->
     <div class="strategy">
       <i class="fa-solid fa-clipboard-check"></i>
-      <h4 data-ar>خروج سريع موجّه</h4><h4 data-en>Targeted Exit Tickets</h4>
+      <h4 data-ar>تذكرة خروج مركزة (سؤالان)</h4><h4 data-en>Focused Exit Ticket (2 items)</h4>
+
+      <!-- OLD (kept):
       <p data-ar>سؤالان: تطبيق مباشر + تحويل تمثيل (مثلاً: جدول → رسم بياني) لضبط خطة الغد.</p>
       <p data-en>Two items: direct application + representation shift (e.g., table→graph) to steer tomorrow.</p>
+      -->
+
+      <p data-ar>
+        آخر الدرس: سؤال تطبيق مباشر واحد + سؤال تحويل تمثيل (مثل: جدول → رسم بياني).
+        أستخدم الإجابات لتخطيط بداية حصة الغد (تقوية أو توسيع).
+      </p>
+      <p data-en>
+        End of class: one direct application + one representation change (e.g., table → graph).
+        Results decide tomorrow’s opener (fix gaps or extend).
+      </p>
     </div>
+
   </div>
 </section>
 
@@ -676,11 +880,11 @@ body.no-scroll{ overflow:hidden }
 
 <!-- ===== Auth Modal ===== -->
 <div id="authModal" class="modal" aria-hidden="true" style="position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;align-items:center;justify-content:center;z-index:200">
-  <div class="panel" style="background:#4a3729;border:1px solid var(--line-dark);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4);padding:20px;min-width:320px;max-width:90vw;color:var(--ink)">
+  <div class="panel" style="background:#6a5544;border:1px solid var(--line-dark);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4);padding:20px;min-width:320px;max-width:90vw;color:var(--ink)">
     <h3 style="margin-top:0" data-ar>تسجيل الدخول</h3>
     <h3 style="margin-top:0" data-en>Sign in</h3>
-    <input id="emailInput" type="email" class="input" placeholder="email@example.com" style="margin-bottom:8px;width:100%;padding:10px 12px;border:1px solid var(--line-dark);border-radius:10px;background:#5a4333;color:var(--ink)" autocomplete="username">
-    <input id="passwordInput" type="password" class="input" placeholder="password" style="margin-bottom:8px;width:100%;padding:10px 12px;border:1px solid var(--line-dark);border-radius:10px;background:#5a4333;color:var(--ink)" autocomplete="current-password">
+    <input id="emailInput" type="email" class="input" placeholder="email@example.com" style="margin-bottom:8px;width:100%;padding:10px 12px;border:1px solid var(--line-dark);border-radius:10px;background:#806956;color:var(--ink)" autocomplete="username">
+    <input id="passwordInput" type="password" class="input" placeholder="password" style="margin-bottom:8px;width:100%;padding:10px 12px;border:1px solid var(--line-dark);border-radius:10px;background:#806956;color:var(--ink)" autocomplete="current-password">
     <div class="cta" style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
       <button id="signInBtn" class="btn" data-ar><i class="fa-solid fa-right-to-bracket"></i> تسجيل الدخول</button>
       <button id="signInBtn_en" class="btn" data-en><i class="fa-solid fa-right-to-bracket"></i> Sign in</button>
@@ -698,10 +902,10 @@ const root = document.body;
 document.getElementById('to-ar').onclick = ()=>{ root.classList.add('lang-ar'); root.classList.remove('lang-en'); };
 document.getElementById('to-en').onclick = ()=>{ root.classList.add('lang-en'); root.classList.remove('lang-ar'); };
 
-/* Sections panel (correct order) */
+/* Sections panel */
 const sectionsPanel = document.createElement('div');
 sectionsPanel.id = 'sectionsPanel';
-sectionsPanel.style.cssText = 'position:fixed;inset-inline-end:16px;top:66px;background:#4a3628;border:1px solid var(--line-dark);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.35);padding:10px;display:none;z-index:140;max-height:60vh;overflow:auto;min-width:260px;color:var(--ink)';
+sectionsPanel.style.cssText = 'position:fixed;inset-inline-end:16px;top:66px;background:#6a5544;border:1px solid var(--line-dark);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.35);padding:10px;display:none;z-index:140;max-height:60vh;overflow:auto;min-width:260px;color:var(--ink)';
 document.body.appendChild(sectionsPanel);
 
 const sectionsBtn = document.getElementById('sectionsBtn');
@@ -783,12 +987,12 @@ function openVideo(src,name=''){
 }
 function renderPdfJS(container, url){
   const viewerWrap = document.createElement('div');
-  viewerWrap.style.cssText = 'width:100%;height:84vh;overflow:auto;background:#3f2d20;position:relative;';
+  viewerWrap.style.cssText = 'width:100%;height:84vh;overflow:auto;background:#faf3ea;position:relative;';
   const viewer = document.createElement('div');
   viewer.id = 'pdfjs-viewer';
   viewer.className = 'pdfViewer';
   viewerWrap.appendChild(viewer);
-  container.appendChild(viewer);
+  container.appendChild(viewerWrap);
 
   const eventBus = new pdfjsViewer.EventBus();
   const linkService = new pdfjsViewer.PDFLinkService({ eventBus });
