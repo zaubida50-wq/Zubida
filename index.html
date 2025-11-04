@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>الملف التعريفي | المعلمة زبيدة عماد الدين عبد الغني</title>
+
+<!-- Fonts + Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- PDF.js (for mobile-friendly PDFs inside overlay) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.8.69/web/pdf_viewer.css">
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.8.69/build/pdf.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.8.69/web/pdf_viewer.js"></script>
+
+<style>
+/* =========================================================================================
+   THEME — Dark Cocoa page bg + Light Beige content containers (mobile-first)
+   ======================================================================================= */
+:root{
+  /* Page */
+  --bg:#1f1510;          /* deep brown page background */
+
+  /* Content containers (sections) */
+  --card:#f3e8d9;        /* soft light beige */
+  --card-2:#f7efe6;      /* even lighter beige for inner cards */
+  --card-3:#fffaf3;      /* cream highlight */
+
+  /* Text colors */
+  --ink:#f4eadf;         /* light text (for dark zones e.g., hero/topbar) */
+  --ink-dark:#2f241b;    /* dark brown text for light containers */
+  --muted-dark:#5b4637;  /* muted text on light containers */
+  --muted:#d6c7b7;       /* muted on dark areas */
+
+  /* Lines & accents */
+  --line:#e7d6c6;        /* borders on light */
+  --line-dark:#3b2a20;   /* borders on dark */
+  --gold:#c9a57f;        /* warm accent lines/icons */
+
+  /* Buttons */
+  --btn:#e8dccf;
+  --btn-ink:#3b2a20;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif}
+html{scroll-behavior:smooth}
+a{color:#7a5a3e;text-decoration:none}
+.container{max-width:1080px;margin:0 auto;padding:0 16px}
+img{max-width:100%;display:block}
+button,a{touch-action:manipulation}
+
+/* Buttons */
+.btn{
+  background:var(--btn); color:var(--btn-ink);
+  border:1px solid #cbb59e; border-radius:14px; padding:10px 14px;
+  font-weight:900; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+  box-shadow:0 6px 14px rgba(0,0,0,.20);
+  transition:transform .08s ease, box-shadow .08s ease, background .15s ease, opacity .15s ease;
+}
+.btn:hover{ transform:translateY(-1px); box-shadow:0 10px 18px rgba(0,0,0,.28); background:#e2d3c1; }
+.btn.ghost{ background:transparent; color:var(--ink); border:1px solid var(--gold) }
+.btn.icon{ padding:8px 10px; border-radius:10px }
+.btn.icon i{ font-size:14px }
+
+/* Sections (LIGHT BEIGE containers) */
+section{
+  background:var(--card); color:var(--ink-dark);
+  border:1px solid var(--line); border-radius:18px;
+  box-shadow:0 10px 26px rgba(0,0,0,.15);
+  padding:20px; margin:16px auto; scroll-margin-top:86px;
+}
+.section-head{
+  display:grid; grid-template-columns:1fr auto; align-items:center; gap:10px;
+  padding-inline:4px; margin:-2px -2px 12px;
+}
+.section-head .title{
+  margin:0; display:flex; align-items:center; gap:10px; min-width:0;
+  color:#3a2a1e;
+  border-inline-start:6px solid var(--gold); padding-inline-start:10px;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.section-head .title i{ color:#8a6b4b }
+.section-head .actions{ display:flex; gap:8px; align-items:center; flex-wrap:nowrap }
+
+/* Text in light sections */
+.lead{ font-size:16.8px; line-height:1.9; color:var(--ink-dark) }
+section ul{ padding-inline-start:1.2em }
+section li{ list-style:disc inside; line-height:1.85; color:var(--muted-dark) }
+b,strong{ color:#533b27 }
+
+/* Cards & grids (LIGHT look) */
+.cv-card{
+  background:linear-gradient(180deg, var(--card-2) 0%, var(--card) 100%);
+  border:1px solid var(--line); border-radius:14px; padding:16px;
+  box-shadow:0 8px 20px rgba(0,0,0,.10); color:var(--ink-dark)
+}
+.grid-2, .grid-3, .grid-4{ display:grid; gap:12px }
+.grid-2{ grid-template-columns:repeat(2,1fr) }
+.grid-3{ grid-template-columns:repeat(3,1fr) }
+.grid-4{ grid-template-columns:repeat(4,1fr) }
+@media (max-width:980px){ .grid-4{ grid-template-columns:repeat(2,1fr) } .grid-3{ grid-template-columns:repeat(2,1fr) } }
+@media (max-width:560px){ .grid-2,.grid-3,.grid-4{ grid-template-columns:1fr } }
+
+.pillar, .strategy{
+  background:var(--card-3);
+  border:1px solid var(--line); border-radius:14px; padding:14px;
+  box-shadow:0 8px 18px rgba(0,0,0,.10); color:var(--ink-dark)
+}
+.pillar h4, .strategy h4{ margin:0 0 6px; color:#4a3728; font-weight:900; font-size:16px }
+.pillar p, .strategy p{ margin:0; color:var(--muted-dark) }
+.pillar i, .strategy i{
+  font-size:18px; color:#fff; background:#8a6b4b;
+  border:1px solid #bfa383; border-radius:10px; padding:8px; line-height:1; display:inline-flex; align-items:center; justify-content:center;
+  box-shadow:0 6px 14px rgba(0,0,0,.12); margin-bottom:8px;
+}
+
+/* Media grid (LIGHT) */
+.media-grid{ display:grid; gap:12px; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)) }
+.media-card{
+  position:relative; background:var(--card-3); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; box-shadow:0 8px 18px rgba(0,0,0,.10); color:var(--ink-dark)
+}
+.media-thumb{ position:relative; width:100%; background:#fff; overflow:hidden }
+@supports (aspect-ratio: 1){ .media-thumb{ aspect-ratio:4/5 } }
+@supports not (aspect-ratio: 1){ .media-thumb::before{ content:""; display:block; padding-top:125% } }
+.media-thumb > img,
+.media-thumb > video,
+.media-thumb > div{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; cursor:zoom-in }
+.media-actions{
+  position:absolute; top:8px; inset-inline-end:8px; display:flex; gap:6px; z-index:2
+}
+.media-actions .icon-btn{
+  background:#ffffff; border:1px solid var(--line); border-radius:10px; padding:6px; cursor:pointer;
+}
+.media-actions .icon-btn i{ color:#6a4d37 }
+
+/* Footer */
+footer{ background:#231810; border-top:1px solid var(--line-dark); text-align:center; padding:16px; color:var(--muted); font-weight:800 }
+footer .en{ font-family:'Poppins',sans-serif; font-weight:600 }
+
+/* Language */
+.lang-ar [data-en], .lang-en [data-ar]{ display:none }
+.lang-en{ direction:ltr; font-family:'Poppins',sans-serif; color:var(--ink-dark) }
+.lang-en section .title{ color:#3a2a1e }
+.lang-en .section-head .title{ border-inline-start:none; border-inline-end:6px solid var(--gold); padding-inline-start:0; padding-inline-end:10px }
+
+/* Topbar (DARK) */
+.topbar{
+  position:sticky; top:0; z-index:120;
+  background:linear-gradient(180deg, rgba(31,21,16,.96), rgba(31,21,16,.82));
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border-bottom:1px solid var(--line-dark); color:var(--ink)
+}
+.topbar .row{
+  display:grid; grid-template-columns:auto 1fr auto; gap:10px; align-items:center; padding:10px 0;
+}
+.brand{
+  display:flex; align-items:center; gap:12px; min-width:0; padding:6px 12px; border-radius:14px;
+  background:#22170f; border:1px solid var(--line-dark); color:var(--ink)
+}
+.brand .mark{
+  width:44px; height:44px; border-radius:12px; border:1px solid #4a3628;
+  background:radial-gradient(16px 16px at 28% 28%, #3d2a1d, #2a1d16);
+  display:grid; place-items:center;
+  color:#e8dccf; font-family:'Poppins',sans-serif; font-weight:800; font-size:16px;
+}
+.brand .mark::after{ content:"ZE" }
+.brand .title{ display:flex; flex-direction:column; line-height:1.1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+.brand .title b{ color:#ecdcca; font-weight:900 }
+.brand .title small{ color:var(--muted); font-weight:700 }
+.lang-switch{ display:flex; gap:8px; align-items:center }
+.lang-switch button,.login-btn,.nav-btn{
+  background:#2a1d16; color:var(--ink); border:1px solid var(--line-dark); border-radius:12px; padding:8px 12px; font-weight:800; cursor:pointer
+}
+#sectionsBtn{ border-color:var(--gold); color:var(--ink); }
+
+/* HERO — Dark floral canvas (unchanged vibe, extra polish) */
+.hero{
+  position:relative; overflow:hidden; border-bottom:1px solid var(--line-dark);
+  background:
+    radial-gradient(800px 420px at 85% -10%, rgba(233,216,197,.12) 0%, rgba(233,216,197,0) 60%),
+    radial-gradient(820px 520px at 5% 100%, rgba(210,184,158,.10) 0%, rgba(210,184,158,0) 62%),
+    linear-gradient(180deg,#1f1510 0%,#241912 70%,#1f1510 100%);
+  color:var(--ink);
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:-20% -10% auto auto; height:90%; width:90%;
+  background-image:
+    url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?>\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" opacity="0.16">\
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%23e7d8c7"/><stop offset="1" stop-color="%23d9c6b3"/></linearGradient></defs>\
+<g fill="url(%23g)">\
+<path d="M100,300c70,-120 220,-140 320,-80c-120,20 -160,120 -180,200c-40,-20 -90,-60 -140,-120z"/>\
+<path d="M360,160c40,0 80,40 90,80c-30,-20 -70,-20 -110,-10c0,-30 10,-60 20,-70z"/>\
+<circle cx="480" cy="260" r="18"/>\
+<circle cx="420" cy="220" r="10"/>\
+</g></svg>');
+  background-size:contain; background-repeat:no-repeat; background-position:center right;
+  pointer-events:none;
+}
+.hero__wrap{
+  max-width:1080px; margin:0 auto; padding: clamp(28px,8.2vw,74px) 16px 52px;
+  display:grid; grid-template-columns:1fr; place-items:center; text-align:center; gap:14px;
+}
+.hero__mark{
+  width:54px; height:54px; border-radius:14px; border:1px solid #4a3628;
+  background:linear-gradient(180deg,#2d2018,#241912); display:grid; place-items:center;
+  color:#e8dccf; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; letter-spacing:.5px;
+  box-shadow:0 10px 26px rgba(0,0,0,.35);
+}
+.hero__mark::after{ content:"ZE" }
+.hero__title{
+  margin:10px 0 2px; font-weight:900; letter-spacing:.15px; color:#f0e6db;
+  font-size: clamp(22px, 6vw, 38px);
+}
+.hero__sub{
+  margin:0; color:var(--muted); font-weight:700; opacity:.96;
+  font-size: clamp(13px, 3.4vw, 16.6px);
+  max-width:820px;
+}
+.hero__cta{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:14px }
+
+/* Overlay (dark) */
+body.no-scroll{ overflow:hidden }
+#overlay{
+  position:fixed; inset:0; background:rgba(0,0,0,.55);
+  display:none; align-items:center; justify-content:center; padding:16px; z-index:150;
+  -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+}
+#overlay.show{ display:flex }
+#overlay .win{
+  width:min(1000px,96vw); max-height:92vh; background:#1b120c; border:1px solid var(--line-dark);
+  border-radius:16px; box-shadow:0 24px 60px rgba(0,0,0,.55); display:flex; flex-direction:column; overflow:hidden; position:relative;
+}
+#overlay .toolbar{
+  position:sticky; top:0; display:flex; align-items:center; gap:8px; justify-content:space-between;
+  background:linear-gradient(180deg,#231810,#1f1510); border-bottom:1px solid var(--line-dark); z-index:2; padding:8px;
+  font-weight:900; color:var(--ink);
+}
+#overlay .toolbar .title{ display:flex; align-items:center; gap:10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+#overlay .toolbar .actions{ display:flex; gap:8px }
+#overlay .toolbar .btnx{
+  background:#2a1d16; border:1px solid var(--line-dark); color:var(--ink); border-radius:10px; padding:8px 12px; font-weight:800; cursor:pointer
+}
+#overlay .toolbar .btnx[data-action="close"]{ background:#3a2a1e; color:#f1e6da; border-color:#584333 }
+#overlay .content{ position:relative; overflow:auto; -webkit-overflow-scrolling:touch; background:#120b07 }
+#overlay .content-inner{ display:grid; place-items:center; min-height:60vh; padding:0 }
+#overlay .content img{ max-width:100%; height:auto; display:block }
+#overlay .content video{ max-width:100%; max-height:84vh; display:block }
+#overlay .content iframe{ width:100%; height:84vh; border:0; background:#120b07 }
+#overlay .close-fab{
+  position:absolute; top:10px; inset-inline-end:10px; z-index:3; width:46px; height:46px; border-radius:999px; border:1px solid #4a3628;
+  background:#2a1d16; box-shadow:0 8px 18px rgba(0,0,0,.45); display:flex; align-items:center; justify-content:center; cursor:pointer;
+}
+#overlay .close-fab i{ color:#e8dccf; font-size:18px }
+
+/* Reveal */
+.reveal{ opacity:0; transform:translateY(12px) scale(.99); transition:opacity .45s ease, transform .45s ease }
+.reveal.show{ opacity:1; transform:none }
+
+/* Mobile tweaks */
+@media (max-width:680px){
+  .topbar .row{ grid-template-columns:1fr; row-gap:8px }
+  .lang-switch{ justify-content:center; flex-wrap:wrap }
+  .brand{ justify-content:center }
+  section{ padding:16px; margin:14px auto }
+  .lead{ font-size:15.6px; line-height:1.88 }
+}
+@media (prefers-reduced-motion:reduce){ *{ animation:none!important; transition:none!important } }
+</style>
+</head>
+
+<body class="lang-ar">
+<!-- ===================== TOPBAR ===================== -->
+<div class="topbar" role="navigation">
+  <div class="container row">
+    <div class="brand" aria-label="Site brand">
+      <div class="mark" aria-hidden="true"></div>
+      <div class="title">
+        <b data-ar>المعلمة زبيدة عماد الدين عبد الغني</b>
+        <b data-en>Zubaydah Emad Aldeen Abd Alghani</b>
+        <small data-ar>اللغة الإنجليزية والرياضيات</small>
+        <small data-en>English Language & Mathematics</small>
+      </div>
+    </div>
+    <div></div>
+    <div class="lang-switch" aria-label="Language and account">
+      <button id="sectionsBtn" class="nav-btn"><i class="fa-solid fa-list"></i> <span data-ar>القائمة</span><span data-en>Sections</span></button>
+      <button class="ghost" id="to-ar" aria-label="Arabic">العربية</button>
+      <button class="ghost" id="to-en" aria-label="English">English</button>
+      <button id="loginBtn" class="login-btn" title="تسجيل الدخول" aria-label="Login"><i class="fa-solid fa-user"></i></button>
+      <button id="logoutBtn" class="login-btn" style="display:none" title="تسجيل الخروج" aria-label="Logout"><i class="fa-solid fa-right-from-bracket"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" aria-label="Hero">
+  <div class="hero__wrap">
+    <div class="hero__mark" aria-hidden="true"></div>
+    <h1 class="hero__title" data-ar>تعليم هادئ.. أثره يبقى</h1>
+    <h1 class="hero__title" data-en>Calm Teaching that Lasts</h1>
+    <p class="hero__sub" data-ar>
+      لغة حيّة تُستخدم فعلًا، وحساب يبدأ بالمعنى لا بالحفظ. خطوات صغيرة وواضحة تصنع ثقة كبيرة.
+    </p>
+    <p class="hero__sub" data-en>
+      Living language and sense-first math. Small, clear steps that build real confidence.
+    </p>
+    <div class="hero__cta">
+      <a class="btn" href="#intro" data-ar><i class="fa-solid fa-book-open"></i> ابدأي من المقدمة</a>
+      <a class="btn" href="#intro" data-en><i class="fa-solid fa-book-open"></i> Start with the Intro</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== MAIN ===================== -->
+<main class="container">
+
+<!-- 1) Introduction -->
+<section id="intro" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-feather"></i><span data-ar>مقدمة</span><span data-en>Introduction</span></h3>
+  </div>
+  <p class="lead" data-ar>
+    أُصمّم الحصة بحيث «تتحرك» اللغة والرياضيات في حياة الطالب/ة. نبدأ بموقف يومي (مثل طلب في مقصف المدرسة أو مقارنة أسعار)،
+    ثم نفكك فكرة واحدة بوضوح، ونختم بتطبيق قصير يقيس الفهم. الهدف: ثقة تُترجم إلى إنجاز داخل الصف وخارجه.
+  </p>
+  <p class="lead" data-en>
+    Lessons start from real life: a canteen request, a bus timetable, a price comparison. We distill one
+    clear idea, then finish with a short application to check understanding. The goal is confidence that
+    turns into performance—both in class and in everyday life.
+  </p>
+</section>
+
+<!-- 2) Vision 2030 -->
+<section id="vision2030" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-eye"></i><span data-ar>الرؤية 2030</span><span data-en>Vision 2030</span></h3>
+  </div>
+  <p class="lead" data-ar>
+    أعمل على بناء كفايات لغوية ورياضية موجهة للمستقبل: تواصل حقيقي باللغة الإنجليزية، ومهارات حل
+    مشكلات رياضية مرتبطة بالحياة والعمل. ننجز مشروعات قصيرة قابلة للقياس، ونمارس المسؤولية الرقمية،
+    ونعمل بروح الفريق، ونُنمّي التفكير الناقد.
+  </p>
+  <p class="lead" data-en>
+    We grow future-ready competencies: authentic English communication and math problem-solving with real-life
+    relevance. Students complete measurable mini-projects, practice digital responsibility, collaborate
+    effectively, and develop critical thinking.
+  </p>
+</section>
+
+<!-- 3) Teaching Principles -->
+<section id="principles" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-compass-drafting"></i><span data-ar>مبادئ التدريس</span><span data-en>Teaching Principles</span></h3>
+  </div>
+  <ul>
+    <li data-ar><b>الوضوح قبل الكثرة:</b> فكرة واحدة متقَنة أفضل من «منهج مزدحم» بلا أثر.</li>
+    <li data-ar><b>تدرّج هادئ:</b> محسوس → بصري → تجريد؛ المعنى يقود الرمز.</li>
+    <li data-ar><b>تمايز رحيم:</b> أساسي (سد الفجوات) – توسيع – إثراء، في ورقة واحدة قصيرة.</li>
+    <li data-ar><b>لغة قابلة للاستخدام:</b> إطارات محادثة وكتابة تُنقل لمواقف جديدة بسهولة.</li>
+    <li data-ar><b>تقويم يوجّه التعلم:</b> سؤالان ذكيان بعد كل نشاط لتعديل المسار فورًا.</li>
+
+    <li data-en><b>Clarity over coverage:</b> one mastered idea beats a crowded syllabus.</li>
+    <li data-en><b>Calm progression:</b> concrete → visual → abstract; meaning leads notation.</li>
+    <li data-en><b>Kind differentiation:</b> core (close gaps) – extend – enrich on one concise sheet.</li>
+    <li data-en><b>Portable language:</b> speaking/writing frames that transfer to new contexts.</li>
+    <li data-en><b>Assessment for guidance:</b> two smart checks after each task to steer next steps.</li>
+  </ul>
+</section>
+
+<!-- 4) Professional Ethics -->
+<section id="ethics" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-scale-balanced"></i><span data-ar>الأخلاقيات المهنية</span><span data-en>Professional Ethics</span></h3>
+  </div>
+  <div class="cv-card">
+    <ul>
+      <li data-ar>سلامة المتعلمين أولًا: روتين دخول وخروج واضح، وإدارة مخاطر استباقية.</li>
+      <li data-ar>خصوصية البيانات وتواصل محترم وفعّال مع الأسرة والإدارة.</li>
+      <li data-ar>تقويم شفاف بروبركات معلنة وتغذية راجعة بناءة قابلة للتنفيذ.</li>
+
+      <li data-en>Learner safety first: clear entry/exit routines and proactive risk management.</li>
+      <li data-en>Data privacy and respectful, efficient communication with families and leadership.</li>
+      <li data-en>Transparent assessment with shared rubrics and actionable feedback.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5) My Vision · Responsibility · Goal -->
+<section id="mine" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-flag"></i><span data-ar>رؤيتي ومسؤوليتي وهدفي</span><span data-en>My Vision · Responsibility · Goal</span></h3>
+  </div>
+  <div class="grid-3">
+    <div class="pillar">
+      <i class="fa-solid fa-seedling"></i>
+      <h4 data-ar>رؤيتي</h4><h4 data-en>My Vision</h4>
+      <p data-ar>صف هادئ يتكلم الإنجليزية بثقة، ويفكر رياضيًا بذكاء، ويجرب ويخطئ في أمان.</p>
+      <p data-en>A calm room where English comes out confidently, math thinking is nimble, and it’s safe to try and err.</p>
+    </div>
+    <div class="pillar">
+      <i class="fa-solid fa-hand-holding-heart"></i>
+      <h4 data-ar>مسؤوليتي</h4><h4 data-en>My Responsibility</h4>
+      <p data-ar>تخطيط واضح، أنشطة موجزة، ومواد داعمة تُظهر تقدمًا حقيقيًا بالأرقام والأمثلة.</p>
+      <p data-en>Clear plans, concise tasks, and support materials that show measurable progress.</p>
+    </div>
+    <div class="pillar">
+      <i class="fa-solid fa-bullseye"></i>
+      <h4 data-ar>هدفي</h4><h4 data-en>My Goal</h4>
+      <p data-ar>أساس لغوي ورياضي ثابت يُترجم إلى علامات أفضل ومهارات حياة أوضح.</p>
+      <p data-en>Solid language & math foundations that turn into better grades and clearer life skills.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6) Teaching Strategies (English & Math) -->
+<section id="strategies" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-lightbulb"></i><span data-ar>استراتيجيات التدريس</span><span data-en>Teaching Strategies</span></h3>
+  </div>
+  <div class="grid-3">
+    <div class="strategy">
+      <i class="fa-solid fa-comments"></i>
+      <h4 data-ar>إطارات محادثة وكتابة</h4><h4 data-en>Speaking & Writing Frames</h4>
+      <p data-ar>قوالب قصيرة: <em>Can I…?</em>، <em>I’d like…</em>، <em>First… then…</em>. نبدّل المفردات ونحافظ على البنية.</p>
+      <p data-en>Compact frames—“Can I…?”, “I’d like…”, “First… then…”. Swap words, keep structure.</p>
+    </div>
+    <div class="strategy">
+      <i class="fa-solid fa-headphones"></i>
+      <h4 data-ar>مدخلات قصيرة موجَّهة</h4><h4 data-en>Guided Micro-Inputs</h4>
+      <p data-ar>مقاطع قراءة/استماع (١–٣ دقائق) بهدف واحد: فكرة رئيسية، أو مفردة سياقية، أو إشارة صوتية.</p>
+      <p data-en>1–3 minute read/listen clips with a single target: main idea, context-vocab, or sound cue.</p>
+    </div>
+    <div class="strategy">
+      <i class="fa-solid fa-shapes"></i>
+      <h4 data-ar>نمذجة بصرية للرياضيات</h4><h4 data-en>Visual Math Models</h4>
+      <p data-ar>عدّادات، خطوط أعداد، جداول مئة، مخططات مساحة—ننتقل بهدوء إلى الرمز ثم القاعدة.</p>
+      <p data-en>Counters, number lines, hundred charts, area models—then notation and rule.</p>
+    </div>
+    <div class="strategy">
+      <i class="fa-solid fa-layer-group"></i>
+      <h4 data-ar>تمايز رحيم</h4><h4 data-en>Kind Differentiation</h4>
+      <p data-ar>ورقة واحدة بثلاث مستويات: أساسي (سد فجوة)، توسيع (تدريب)، إثراء (تحدٍّ قصير).</p>
+      <p data-en>One sheet, three tiers: core (close gaps), extend (practice), enrich (short challenge).</p>
+    </div>
+    <div class="strategy">
+      <i class="fa-solid fa-square-check"></i>
+      <h4 data-ar>تقويمات قصيرة موجِّهة</h4><h4 data-en>Quick Guiding Checks</h4>
+      <p data-ar>بعد كل نشاط: سؤالان يحددان «هل نمضي؟ أم نُعيد؟» ويقودان خطة الغد.</p>
+      <p data-en>After each task: two checks to decide “go on or rewind,” shaping tomorrow’s plan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7) English: The 4 Skills -->
+<section id="skills" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-language"></i><span data-ar>مهارات اللغة الأربع</span><span data-en>English: The 4 Skills</span></h3>
+  </div>
+  <div class="grid-4">
+    <div class="pillar">
+      <i class="fa-solid fa-headphones"></i>
+      <h4 data-ar>الاستماع</h4><h4 data-en>Listening</h4>
+      <p data-ar>روتين يومي ٣–٥ دقائق: استماع قصير + هدف واحد (فكرة رئيسية/تفصيل). مثال: إعلان مدرسي.</p>
+      <p data-en>Daily 3–5 min: short audio + one target (main idea/detail). Example: school announcement.</p>
+    </div>
+    <div class="pillar">
+      <i class="fa-solid fa-comments"></i>
+      <h4 data-ar>المحادثة</h4><h4 data-en>Speaking</h4>
+      <p data-ar>تبادل أدوار بإطار ثابت: <em>Excuse me, where…?</em>، <em>How much is…?</em>. نرفع الطلاقة ثم الدقة.</p>
+      <p data-en>Role-swaps with fixed frames: “Excuse me, where…?” “How much is…?” Fluency first, then accuracy.</p>
+    </div>
+    <div class="pillar">
+      <i class="fa-solid fa-book-open-reader"></i>
+      <h4 data-ar>القراءة</h4><h4 data-en>Reading</h4>
+      <p data-ar>تنبؤ من العنوان + مفردة سياقية + سؤالان للفهم. مثال: بطاقة معلومات عن بلد/عالم صغير.</p>
+      <p data-en>Predict from title + context vocab + two comprehension checks. Example: short info card.</p>
+    </div>
+    <div class="pillar">
+      <i class="fa-solid fa-pen-nib"></i>
+      <h4 data-ar>الكتابة</h4><h4 data-en>Writing</h4>
+      <p data-ar>فقرة ٦–٨ جمل بإطار (مقدمة–تفصيل–خاتمة). مراجعة بسيطة: «أضِف مثالًا، صحّح زمن الفعل».</p>
+      <p data-en>6–8 sentence paragraph (intro-detail-close). Quick review: “add an example, fix verb tense.”</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8) CV -->
+<section id="cv" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-id-card"></i><span data-ar>السيرة الذاتية</span><span data-en>Curriculum Vitae</span></h3>
+    <div class="actions" data-guard>
+      <label for="cvImgInput" class="btn icon" title="رفع صورة للسيرة (اختياري)"><i class="fa-solid fa-image"></i></label>
+      <input id="cvImgInput" type="file" accept="image/*" hidden>
+    </div>
+  </div>
+
+  <div class="cv-card" style="margin-bottom:12px">
+    <h4 style="margin:0 0 8px;color:#4a3728" data-ar>البيانات</h4>
+    <h4 style="margin:0 0 8px;color:#4a3728" data-en>Info</h4>
+    <ul style="margin:0">
+      <li data-ar>الاسم: <b>زبيدة عماد الدين عبد الغني</b></li>
+      <li data-en>Name: <b>Zubaydah Emad Aldeen Abd Alghani</b></li>
+      <li data-ar>الهاتف: <a href="tel:+966570564668">+966570564668</a> | البريد: <a href="mailto:omdazuzu@gmail.com">omdazuzu@gmail.com</a></li>
+      <li data-en>Phone: <a href="tel:+966570564668">+966570564668</a> | Email: <a href="mailto:omdazuzu@gmail.com">omdazuzu@gmail.com</a></li>
+      <li data-ar>المواد: <b>اللغة الإنجليزية، الرياضيات</b></li>
+      <li data-en>Subjects: <b>English, Mathematics</b></li>
+    </ul>
+  </div>
+
+  <div class="cv-card">
+    <h4 style="margin:0 0 8px;color:#4a3728" data-ar>الهدف المهني</h4>
+    <h4 style="margin:0 0 8px;color:#4a3728" data-en>Career Objective</h4>
+    <p class="lead" data-ar>بناء أساس لغوي ورياضي يُسهّل الدراسة والحياة: تواصل إنجليزي حقيقي، وحلول رياضية منطقية.</p>
+    <p class="lead" data-en>Build language & math foundations: authentic English communication and logical problem solving.</p>
+
+    <h4 style="margin:16px 0 8px;color:#4a3728" data-ar>التعليم</h4><h4 style="margin:16px 0 8px;color:#4a3728" data-en>Education</h4>
+    <ul>
+      <li data-ar>بكالوريوس آداب — <b>لغة ألمانية + لسانيات</b>.</li>
+      <li data-en>B.A. — <b>German & Linguistics</b>.</li>
+    </ul>
+
+    <h4 style="margin:16px 0 8px;color:#4a3728" data-ar>الخبرات</h4><h4 style="margin:16px 0 8px;color:#4a3728" data-en>Experience</h4>
+    <ul>
+      <li data-ar>نهج تواصلي في الإنجليزية: مواقف يومية، لعب أدوار، مفردة سياقية.</li>
+      <li data-en>Communicative English: real-life tasks, role-plays, context vocabulary.</li>
+      <li data-ar>رياضيات بالمعنى أولًا: نماذج بصرية، ثم خوارزميات مبسطة.</li>
+      <li data-en>Sense-first math: visual models then streamlined procedures.</li>
+      <li data-ar>تقويم بنائي مستمر وتمايز رحيم بثلاث مستويات.</li>
+      <li data-en>Continuous formative assessment and kind differentiation (3 tiers).</li>
+    </ul>
+
+    <h4 style="margin:16px 0 8px;color:#4a3728" data-ar>المهارات</h4><h4 style="margin:16px 0 8px;color:#4a3728" data-en>Skills</h4>
+    <ul>
+      <li data-ar>إطارات محادثة وكتابة — إدارة الأخطاء — استراتيجيات مفردات.</li>
+      <li data-en>Speaking/Writing frames — error handling — vocabulary strategies.</li>
+      <li data-ar>تخطيط وحدات — أوراق عمل مركّزة — روبركات واضحة.</li>
+      <li data-en>Unit planning — focused worksheets — clear rubrics.</li>
+    </ul>
+
+    <h4 style="margin:16px 0 8px;color:#4a3728" data-ar>اللغات</h4><h4 style="margin:16px 0 8px;color:#4a3728" data-en>Languages</h4>
+    <ul>
+      <li data-ar>العربية — الإنجليزية — الألمانية.</li>
+      <li data-en>Arabic — English — German.</li>
+    </ul>
+  </div>
+
+  <div id="cvImgHolder" class="cv-card" style="display:none;padding:0;overflow:hidden"></div>
+</section>
+
+<!-- 9) Worksheets -->
+<section id="worksheets" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-file-pen"></i><span data-ar>أوراق العمل</span><span data-en>Worksheets</span></h3>
+    <div class="actions" data-guard>
+      <label for="wsInput" class="btn icon" title="رفع صور/فيديو/ملفات"><i class="fa-solid fa-upload"></i></label>
+      <input id="wsInput" type="file" multiple accept="image/*,video/*,application/pdf" hidden>
+    </div>
+  </div>
+  <div class="media-grid" id="wsGrid"></div>
+</section>
+
+<!-- 10) Exams -->
+<section id="exams" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-square-check"></i><span data-ar>الاختبارات</span><span data-en>Exams</span></h3>
+    <div class="actions" data-guard>
+      <label for="exInput" class="btn icon" title="رفع صور/فيديو/ملفات"><i class="fa-solid fa-upload"></i></label>
+      <input id="exInput" type="file" multiple accept="image/*,video/*,application/pdf" hidden>
+    </div>
+  </div>
+  <div class="media-grid" id="exGrid"></div>
+</section>
+
+<!-- 11) Support & Ta'zeez -->
+<section id="support" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-hands-holding-child"></i><span data-ar>تعزيز ودعم</span><span data-en>Support & Ta'zeez</span></h3>
+    <div class="actions" data-guard>
+      <label for="supInput" class="btn icon" title="رفع صور/فيديو/ملفات"><i class="fa-solid fa-upload"></i></label>
+      <input id="supInput" type="file" multiple accept="image/*,video/*,application/pdf" hidden>
+    </div>
+  </div>
+  <div class="media-grid" id="supGrid"></div>
+</section>
+
+<!-- 12) Photo Gallery -->
+<section id="gallery" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-images"></i><span data-ar>معرض الصور</span><span data-en>Photo Gallery</span></h3>
+    <div class="actions" data-guard>
+      <label for="galInput" class="btn icon" title="رفع صور/فيديو/ملفات"><i class="fa-solid fa-upload"></i></label>
+      <input id="galInput" type="file" multiple accept="image/*,video/*,application/pdf" hidden>
+    </div>
+  </div>
+  <div class="media-grid" id="galGrid"></div>
+</section>
+
+<!-- 13) Video Gallery -->
+<section id="videos" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-film"></i><span data-ar>معرض الفيديو</span><span data-en>Video Gallery</span></h3>
+    <div class="actions" data-guard>
+      <label for="vidInput" class="btn icon" title="رفع فيديو"><i class="fa-solid fa-upload"></i></label>
+      <input id="vidInput" type="file" multiple accept="video/*" hidden>
+    </div>
+  </div>
+  <div class="media-grid" id="vidGrid"></div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div data-ar>© جميع الحقوق محفوظة المعلمة زبيدة</div>
+    <div data-en class="en">© All rights reserved</div>
+  </div>
+</footer>
+
+<!-- OVERLAY -->
+<div id="overlay" role="dialog" aria-modal="true" aria-label="Viewer"></div>
+
+<!-- ===== Auth Modal ===== -->
+<div id="authModal" class="modal" aria-hidden="true" style="position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:200">
+  <div class="panel" style="background:#22170f;border:1px solid var(--line-dark);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.5);padding:20px;min-width:320px;max-width:90vw;color:var(--ink)">
+    <h3 style="margin-top:0" data-ar>تسجيل الدخول</h3>
+    <h3 style="margin-top:0" data-en>Sign in</h3>
+    <input id="emailInput" type="email" class="input" placeholder="email@example.com" style="margin-bottom:8px;width:100%;padding:10px 12px;border:1px solid var(--line-dark);border-radius:10px;background:#2a1d16;color:var(--ink)" autocomplete="username">
+    <input id="passwordInput" type="password" class="input" placeholder="password" style="margin-bottom:8px;width:100%;padding:10px 12px;border:1px solid var(--line-dark);border-radius:10px;background:#2a1d16;color:var(--ink)" autocomplete="current-password">
+    <div class="cta" style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+      <button id="signInBtn" class="btn" data-ar><i class="fa-solid fa-right-to-bracket"></i> تسجيل الدخول</button>
+      <button id="signInBtn_en" class="btn" data-en><i class="fa-solid fa-right-to-bracket"></i> Sign in</button>
+      <button id="closeAuth" class="btn ghost" data-ar><i class="fa-solid fa-xmark"></i> إغلاق</button>
+      <button id="closeAuth_en" class="btn ghost" data-en><i class="fa-solid fa-xmark"></i> Close</button>
+    </div>
+    <p id="authMsg" class="note" style="margin-top:10px;color:var(--muted);font-weight:700"></p>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+/* Language toggle */
+const root = document.body;
+document.getElementById('to-ar').onclick = ()=>{ root.classList.add('lang-ar'); root.classList.remove('lang-en'); };
+document.getElementById('to-en').onclick = ()=>{ root.classList.add('lang-en'); root.classList.remove('lang-ar'); };
+
+/* Sections panel (correct order) */
+const sectionsPanel = document.createElement('div');
+sectionsPanel.id = 'sectionsPanel';
+sectionsPanel.style.cssText = 'position:fixed;inset-inline-end:16px;top:66px;background:#22170f;border:1px solid var(--line-dark);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.45);padding:10px;display:none;z-index:140;max-height:60vh;overflow:auto;min-width:260px;color:var(--ink)';
+document.body.appendChild(sectionsPanel);
+
+const sectionsBtn = document.getElementById('sectionsBtn');
+const SECTIONS = [
+  ['intro','fa-feather','مقدمة','Introduction'],
+  ['vision2030','fa-eye','الرؤية 2030','Vision 2030'],
+  ['principles','fa-compass-drafting','مبادئ التدريس','Teaching Principles'],
+  ['ethics','fa-scale-balanced','الأخلاقيات المهنية','Professional Ethics'],
+  ['mine','fa-flag','رؤيتي ومسؤوليتي وهدفي','My Vision · Responsibility · Goal'],
+  ['strategies','fa-lightbulb','استراتيجيات التدريس','Teaching Strategies'],
+  ['skills','fa-language','مهارات اللغة الأربع','English: The 4 Skills'],
+  ['cv','fa-id-card','السيرة الذاتية','CV'],
+  ['worksheets','fa-file-pen','أوراق العمل','Worksheets'],
+  ['exams','fa-square-check','الاختبارات','Exams'],
+  ['support','fa-hands-holding-child','تعزيز ودعم','Support'],
+  ['gallery','fa-images','معرض الصور','Photo Gallery'],
+  ['videos','fa-film','فيديو','Videos']
+];
+sectionsPanel.innerHTML = SECTIONS.map(([id,icon,ar,en]) =>
+  `<a href="#${id}" style="display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;color:#f0e6db;font-weight:800"><i class="fa-solid ${icon}" style="color:var(--gold)"></i><span data-ar>${ar}</span><span data-en>${en}</span></a>`
+).join('');
+sectionsPanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault(); sectionsPanel.style.display='none'; sectionsBtn.setAttribute('aria-expanded','false');
+  document.getElementById(a.getAttribute('href').slice(1)).scrollIntoView({behavior:'smooth'});
+}));
+sectionsBtn.onclick = ()=>{
+  const show = sectionsPanel.style.display!=='block';
+  sectionsPanel.style.display = show ? 'block' : 'none';
+  sectionsBtn.setAttribute('aria-expanded', show ? 'true' : 'false');
+};
+
+/* Overlay / Viewer (ESC, backdrop, buttons) */
+const overlay = document.getElementById('overlay');
+function lockBody(lock){ document.body.classList.toggle('no-scroll', !!lock); }
+function buildWindow({ title, icon = 'fa-rectangle-list', actions = [] }){
+  overlay.innerHTML = `
+    <div class="win" role="document">
+      <button class="close-fab" data-action="close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="toolbar">
+        <div class="title"><i class="fa-solid ${icon}"></i><span title="${title || ''}">${title || ''}</span></div>
+        <div class="actions">
+          ${actions.map(a =>
+            a.href
+              ? `<a class="btnx" ${a.download ? 'download' : ''} href="${a.href}" target="${a.target || '_blank'}" rel="${a.rel || 'noopener'}" title="${a.label}">${a.label}</a>`
+              : `<button class="btnx" data-action="${a.action}" title="${a.label}">${a.label}</button>`
+          ).join('')}
+          <button class="btnx" data-action="close" aria-label="Close">✕</button>
+        </div>
+      </div>
+      <div class="content"><div class="content-inner"></div></div>
+    </div>`;
+  overlay.querySelectorAll('[data-action="close"]').forEach(b=>b.addEventListener('click', closeOverlay));
+  overlay.addEventListener('click', onBackdrop);
+  document.addEventListener('keydown', escHandler);
+  return { content: overlay.querySelector('.content-inner') };
+}
+function onBackdrop(e){ if (e.target === overlay) closeOverlay(); }
+function escHandler(ev){ if(ev.key === 'Escape'){ closeOverlay(); } }
+function showOverlay(){ overlay.classList.add('show'); lockBody(true); }
+function closeOverlay(){
+  overlay.classList.remove('show'); overlay.innerHTML=''; lockBody(false);
+  document.removeEventListener('keydown', escHandler);
+  overlay.removeEventListener('click', onBackdrop);
+}
+window.closeOverlay = closeOverlay;
+
+function openImage(src,name=''){
+  overlay.innerHTML='';
+  const actions=[{href:src,label:'Download',download:true},{href:src,label:'Open tab',target:'_blank',rel:'noopener'}];
+  const { content } = buildWindow({ title:name||'Image', icon:'fa-image', actions });
+  const img=new Image(); img.decoding='async'; img.loading='eager'; img.src=src; img.alt=name||'image'; img.style.maxHeight='84vh'; content.appendChild(img); showOverlay();
+}
+function openVideo(src,name=''){
+  overlay.innerHTML='';
+  const actions=[{href:src,label:'Download',download:true},{href:src,label:'Open tab',target:'_blank',rel:'noopener'}];
+  const { content } = buildWindow({ title:name||'Video', icon:'fa-film', actions });
+  const v=document.createElement('video'); v.src=src; v.controls=true; v.playsInline=true; v.autoplay=true; v.style.maxHeight='84vh'; content.appendChild(v); showOverlay();
+}
+function renderPdfJS(container, url){
+  const viewerWrap = document.createElement('div');
+  viewerWrap.style.cssText = 'width:100%;height:84vh;overflow:auto;background:#120b07;position:relative;';
+  const viewer = document.createElement('div');
+  viewer.id = 'pdfjs-viewer';
+  viewer.className = 'pdfViewer';
+  viewerWrap.appendChild(viewer);
+  container.appendChild(viewer);
+
+  const eventBus = new pdfjsViewer.EventBus();
+  const linkService = new pdfjsViewer.PDFLinkService({ eventBus });
+  const findController = new pdfjsViewer.PDFFindController({ eventBus, linkService });
+  const pdfViewer = new pdfjsViewer.PDFViewer({ container: viewerWrap, eventBus, linkService, findController });
+  linkService.setViewer(pdfViewer);
+
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.8.69/build/pdf.worker.js';
+  const loadingTask = pdfjsLib.getDocument(url);
+  loadingTask.promise.then(pdfDoc => {
+    pdfViewer.setDocument(pdfDoc);
+    linkService.setDocument(pdfDoc);
+  });
+}
+function openPDF(src,name='PDF'){
+  const isSmall = window.innerWidth < 900;
+  overlay.innerHTML='';
+  const actions=[{href:src,label:'Download',download:true},{href:src,label:'Open tab',target:'_blank',rel:'noopener'}];
+  const { content } = buildWindow({ title:name, icon:'fa-file-pdf', actions });
+  if(isSmall){ renderPdfJS(content, src); } else { const frame=document.createElement('iframe'); frame.src=src; content.appendChild(frame); }
+  showOverlay();
+}
+window.openImage = openImage; window.openVideo = openVideo; window.openPDF = openPDF;
+
+/* Reveal on scroll */
+const io = new IntersectionObserver((entries)=>{ entries.forEach(en=>{ if (en.isIntersecting){ en.target.classList.add('show'); io.unobserve(en.target); } }); }, { threshold:.12 });
+document.querySelectorAll('.reveal, .media-card, .pillar, .strategy').forEach(el=>io.observe(el));
+
+/* Auth & Supabase */
+const authModal = document.getElementById('authModal');
+const emailInput = document.getElementById('emailInput');
+const passwordInput = document.getElementById('passwordInput');
+const msg = document.getElementById('authMsg');
+const showAuth = show => { authModal.style.display = show ? 'flex' : 'none'; authModal.setAttribute('aria-hidden', show ? 'false' : 'true'); };
+const setMsg = t => { msg.textContent = t || ''; };
+function setGuardVisible(isAuthed){
+  document.querySelectorAll('[data-guard]').forEach(el=>{ el.style.display = isAuthed ? 'flex' : 'none'; });
+  document.getElementById('logoutBtn').style.display = isAuthed ? 'inline-block' : 'none';
+}
+document.getElementById('loginBtn').onclick = ()=> showAuth(true);
+document.getElementById('closeAuth').onclick = document.getElementById('closeAuth_en').onclick = ()=> showAuth(false);
+
+const SUPABASE_URL = 'https://ckgskokgfyxkditwfurs.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNrZ3Nrb2tnZnl4a2RpdHdmdXJzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIyNzc5MjEsImV4cCI6MjA3Nzg1MzkyMX0.056olmiBB2gPfTSrapws3k_AHllmTYHwNgtIqDctVc8';
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const MEDIA_BUCKET = 'mida';
+const BASE = 'zubaydah4';
+
+const PATH = {
+  WS:    `${BASE}/worksheets`,
+  EX:    `${BASE}/exams`,
+  SUP:   `${BASE}/support`,
+  GAL:   `${BASE}/gallery`,
+  VID:   `${BASE}/videos`,
+  CVIMG: `${BASE}/cvimg`
+};
+
+async function getUser(){ const { data } = await supabaseClient.auth.getUser(); return data?.user ?? null; }
+function requireUser(user){ if(!user){ showAuth(true); return false; } return true; }
+
+document.getElementById('signInBtn').onclick = document.getElementById('signInBtn_en').onclick = async ()=>{
+  const email=(emailInput.value||'').trim(); const password=(passwordInput.value||'').trim();
+  if(!email||!password){ setMsg('أدخلي الإيميل وكلمة المرور / Enter email & password'); return; }
+  const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+  if(error){ setMsg('خطأ: ' + error.message); return; }
+  setMsg('تم تسجيل الدخول ✓'); showAuth(false);
+  const user = await getUser(); setGuardVisible(!!user);
+};
+document.getElementById('logoutBtn').onclick = async ()=>{ await supabaseClient.auth.signOut(); setMsg('تم تسجيل الخروج'); setGuardVisible(false); };
+
+const publicUrl = path => supabaseClient.storage.from(MEDIA_BUCKET).getPublicUrl(path).data.publicUrl;
+
+async function listAt(path){
+  const { data } = await supabaseClient.storage.from(MEDIA_BUCKET)
+    .list(path, { limit:200, sortBy:{column:'created_at', order:'desc'} });
+  return (data||[]).map(it=>({ name: it.name, path: `${path}/${it.name}`, url: publicUrl(`${path}/${it.name}`) }));
+}
+async function uploadManyAt(path, files){
+  const user = await getUser(); if(!requireUser(user)) return;
+  for(const f of files){
+    const safe = (f.name || 'file').replace(/\s+/g,'_').toLowerCase();
+    const fixed = /\.mb4$/i.test(safe) ? safe.replace(/\.mb4$/i,'.mp4') : safe;
+    const to = `${path}/${Date.now()}_${fixed}`;
+    await supabaseClient.storage.from(MEDIA_BUCKET).upload(to, f, { cacheControl:'3600', upsert:false });
+  }
+  loadAll();
+}
+async function uploadSingle(path, file){
+  const user = await getUser(); if(!requireUser(user)) return;
+  const existing = await listAt(path);
+  if(existing.length){ await supabaseClient.storage.from(MEDIA_BUCKET).remove(existing.map(e=>e.path)); }
+  const safe = (file.name || 'image').replace(/\s+/g,'_').toLowerCase();
+  const to = `${path}/${Date.now()}_${safe}`;
+  await supabaseClient.storage.from(MEDIA_BUCKET).upload(to, file, { cacheControl:'3600', upsert:false });
+  loadAll();
+}
+async function removeFile(path){
+  const user = await getUser(); if(!requireUser(user)) return;
+  await supabaseClient.storage.from(MEDIA_BUCKET).remove([path]);
+  loadAll();
+}
+
+function cardTemplate(imgHtml, f){
+  return `
+    <div class="media-card reveal">
+      <div class="media-actions" data-guard>
+        <button class="icon-btn" data-del="${f.path}" title="حذف / Delete"><i class="fa-solid fa-trash"></i></button>
+        <a class="icon-btn" href="${f.url}" download title="تنزيل / Download"><i class="fa-solid fa-download"></i></a>
+      </div>
+      <div class="media-thumb" data-kind="${imgHtml.kind}">
+        ${imgHtml.body}
+      </div>
+    </div>`;
+}
+function renderMixedGrid(container, files){
+  if (!files.length){
+    container.innerHTML = '<p style="grid-column:1/-1;color:#6c5846;margin:6px 2px">لا توجد عناصر حتى الآن.<span data-en> No items yet.</span></p>';
+    return;
+  }
+  container.innerHTML = files.map(f=>{
+    const isImg = /\.(png|jpe?g|webp|gif|svg)$/i.test(f.name);
+    const isVid = /\.(mp4|m4v|webm|ogg|ogv|mov|3gp|3gpp|mkv|avi|mpeg|mpg)$/i.test(f.name);
+    const isPdf = /\.pdf$/i.test(f.name);
+
+    if (isImg){
+      return cardTemplate({kind:'image', body:`<img decoding="async" loading="lazy" src="${f.url}" alt="${f.name}" onclick="openImage('${f.url}','${f.name}')">`}, f);
+    }
+    if (isVid){
+      return cardTemplate({kind:'video', body:`<video src="${f.url}" muted playsinline preload="metadata" onclick="openVideo('${f.url}','${f.name}')"></video>`}, f);
+    }
+    if (isPdf){
+      const name = f.name.replace(/_/g,' ');
+      return cardTemplate({kind:'pdf', body:`<div class="pdf-thumb" style="display:grid;place-items:center;text-align:center;padding:16px" onclick="openPDF('${f.url}','${name}')"><i class="fa-solid fa-file-pdf" style="font-size:28px;color:#8a6b4b"></i><div class="name" style="margin-top:6px;color:#3a2a1e;font-weight:900;max-width:90%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 6px">${name}</div></div>`}, f);
+    }
+    return cardTemplate({kind:'file', body:`<div style="display:grid;place-items:center;background:#fff"><div style="text-align:center;padding:14px"><i class="fa-solid fa-file" style="font-size:24px;color:#8a6b4b"></i><div style="margin-top:8px;font-weight:900;color:#3a2a1e;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 6px">${f.name}</div></div></div>`}, f);
+  }).join('');
+
+  container.querySelectorAll('[data-del]').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{ e.stopPropagation(); const path = btn.dataset.del;
+      if (confirm('هل تريدين حذف هذا الملف؟ / Delete this file?')) removeFile(path);
+    });
+  });
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}
+function renderSingleImage(holderEl, files, aspect='3/4'){
+  holderEl.innerHTML = '';
+  if(!files.length){ holderEl.style.display='none'; return; }
+  holderEl.style.display='block';
+  const f = files[0]; const url = f.url;
+  const block = document.createElement('div');
+  block.style.position='relative';
+  block.innerHTML = `
+    <div class="media-actions" data-guard style="position:absolute;top:8px;inset-inline-end:8px;display:flex;gap:6px;z-index:2">
+      <button class="icon-btn" data-del="${f.path}" title="حذف / Delete"><i class="fa-solid fa-trash"></i></button>
+      <a class="icon-btn" href="${url}" download title="تنزيل / Download"><i class="fa-solid fa-download"></i></a>
+    </div>
+    <div class="media-thumb" data-kind="image" style="aspect-ratio:${aspect}">
+      <img decoding="async" src="${url}" alt="${f.name}" onclick="openImage('${url}','${f.name}')">
+    </div>`;
+  holderEl.appendChild(block);
+  block.querySelector('[data-del]').addEventListener('click', ()=>{ if(confirm('Delete this image?')) removeFile(f.path); });
+}
+
+/* Bind inputs */
+const wsGrid   = document.getElementById('wsGrid');
+const exGrid   = document.getElementById('exGrid');
+const supGrid  = document.getElementById('supGrid');
+const galGrid  = document.getElementById('galGrid');
+const vidGrid  = document.getElementById('vidGrid');
+const cvImgHolder = document.getElementById('cvImgHolder');
+
+document.getElementById('wsInput') ?.addEventListener('change', e=>uploadManyAt(PATH.WS, e.target.files));
+document.getElementById('exInput') ?.addEventListener('change', e=>uploadManyAt(PATH.EX, e.target.files));
+document.getElementById('supInput')?.addEventListener('change', e=>uploadManyAt(PATH.SUP, e.target.files));
+document.getElementById('galInput')?.addEventListener('change', e=>uploadManyAt(PATH.GAL, e.target.files));
+document.getElementById('vidInput')?.addEventListener('change', e=>uploadManyAt(PATH.VID, e.target.files));
+document.getElementById('cvImgInput')?.addEventListener('change', e=>{ if(e.target.files?.[0]) uploadSingle(PATH.CVIMG, e.target.files[0]); });
+
+async function loadAll(){
+  const [ws, ex, sup, gal, vid, cvimg, user] = await Promise.all([
+    listAt(PATH.WS), listAt(PATH.EX), listAt(PATH.SUP), listAt(PATH.GAL),
+    listAt(PATH.VID), listAt(PATH.CVIMG), getUser()
+  ]);
+  renderMixedGrid(wsGrid, ws);
+  renderMixedGrid(exGrid, ex);
+  renderMixedGrid(supGrid,  sup);
+  renderMixedGrid(galGrid,  gal);
+  renderMixedGrid(vidGrid,  vid);
+  renderSingleImage(cvImgHolder, cvimg, '3/4');
+  setGuardVisible(!!user);
+}
+supabaseClient.auth.onAuthStateChange(async ()=>{ loadAll(); });
+loadAll();
+});
+</script>
+</body>
+</html>
