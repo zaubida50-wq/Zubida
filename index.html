@@ -985,7 +985,12 @@ function openVideo(src,name=''){
   const { content } = buildWindow({ title:name||'Video', icon:'fa-film', actions });
   const v=document.createElement('video'); v.src=src; v.controls=true; v.playsInline=true; v.autoplay=true; v.style.maxHeight='84vh'; content.appendChild(v); showOverlay();
 }
+
+/* PDF viewer helpers */
 function renderPdfJS(container, url){
+  /* Guard: if PDF.js didn’t load, just throw so caller can fallback cleanly */
+  if (!(window.pdfjsLib && window.pdfjsViewer)) { throw new Error('PDFJS not available'); }
+
   const viewerWrap = document.createElement('div');
   viewerWrap.style.cssText = 'width:100%;height:84vh;overflow:auto;background:#faf3ea;position:relative;';
   const viewer = document.createElement('div');
@@ -1007,13 +1012,34 @@ function renderPdfJS(container, url){
     linkService.setDocument(pdfDoc);
   });
 }
+
+/* FIXED: robust PDF opener with fallback so overlay always shows */
 function openPDF(src,name='PDF'){
-  const isSmall = window.innerWidth < 900;
   overlay.innerHTML='';
   const actions=[{href:src,label:'Download',download:true},{href:src,label:'Open tab',target:'_blank',rel:'noopener'}];
   const { content } = buildWindow({ title:name, icon:'fa-file-pdf', actions });
-  if(isSmall){ renderPdfJS(content, src); } else { const frame=document.createElement('iframe'); frame.src=src; content.appendChild(frame); }
+
+  /* Always open overlay first, then try to render */
   showOverlay();
+
+  const isSmall = window.innerWidth < 900;
+  try{
+    if(isSmall){
+      renderPdfJS(content, src);
+    }else{
+      const frame=document.createElement('iframe');
+      frame.src=src;
+      frame.title=name;
+      content.appendChild(frame);
+    }
+  }catch(err){
+    /* Safe fallback: iframe (some mobiles can still show it),
+       otherwise the top-right "Open tab" button works. */
+    const frame=document.createElement('iframe');
+    frame.src=src;
+    frame.title=name;
+    content.appendChild(frame);
+  }
 }
 window.openImage = openImage; window.openVideo = openVideo; window.openPDF = openPDF;
 
